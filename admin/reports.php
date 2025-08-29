@@ -173,17 +173,7 @@ $result=mysqli_query($con,$qry);
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="reports.php" class="current">Chart Representation</a> </div>
-    <h1 class="text-center">Earning and Expenses Report <i class="fas fa-chart-bar"></i></h1>
   </div>
-  <div class="container-fluid">
-    
-    <div class="row-fluid">
-      <div class="span12">
-        <div id="top_y_div" style="width: 700px; height: 300px;"></div>
-      </div>
-    </div>
-  </div>
-
   <div id="content-header">
     <h1 class="text-center">Registered Member's Report <i class="fas fa-chart-bar"></i></h1>
   </div>
@@ -218,7 +208,7 @@ $result=mysqli_query($con,$qry);
 <!--Footer-part-->
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> <?php echo date("Y");?> &copy; Developed By Naseeb Bajracharya</a> </div>
+  <div id="footer" class="span12"> <?php echo date("Y");?> &copy; Developed By Zeeshan</a> </div>
 </div>
 
 <style>

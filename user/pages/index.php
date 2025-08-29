@@ -70,7 +70,7 @@
                   <?php
 
                   include "dbcon.php";
-                  $qry = "select * from announcements";
+                  $qry = "select * from announcements order by date desc";
                   $result = mysqli_query($con, $qry);
 
                   while ($row = mysqli_fetch_array($result)) {
@@ -100,7 +100,7 @@
   <!--Footer-part-->
 
   <div class="row-fluid">
-    <div id="footer" class="span12"> <?php echo date("Y"); ?> &copy; Developed By Naseeb Bajracharya</a> </div>
+    <div id="footer" class="span12"> <?php echo date("Y"); ?> &copy; Developed By Zeeshan</a> </div>
   </div>
 
 

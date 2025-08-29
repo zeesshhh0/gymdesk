@@ -47,8 +47,8 @@ header('location:../index.php');
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="customer-progress.php" class="tip-bottom">Progress Form</a> <a href="#" class="current">Update Progress</a> </div>
-  <h1 class="text-center">Update Customer's Progress <i class="fas fa-signal"></i></h1>
+  <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="user-progress.php" class="tip-bottom">Progress Form</a> <a href="#" class="current">Update Progress</a> </div>
+  <h1 class="text-center">Update User's Progress <i class="fas fa-signal"></i></h1>
 </div>
 <form role="form" action="index.php" method="POST">
     <?php 
@@ -85,7 +85,7 @@ header('location:../index.php');
                             echo"<h1 style='color:maroon;'>Error 404</h1>";
                             echo"<h3>Error occured while updating your details</h3>";
                             echo"<p>Please Try Again</p>";
-                            echo"<a class='btn btn-warning btn-big'  href='customer-progress.php'>Go Back</a> </div>";
+                            echo"<a class='btn btn-warning btn-big'  href='user-progress.php'>Go Back</a> </div>";
                         echo"</div>";
                         echo"</div>";
                     echo"</div>";

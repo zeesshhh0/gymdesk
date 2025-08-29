@@ -37,6 +37,10 @@
             //code after connection is successfull
             $qry = "insert into members(fullname,username,password,dor,gender,services,amount,plan,address,contact,status) values ('$fullname','$username','$password', CURRENT_TIMESTAMP,'$gender','$services','0','$plan','$address','$contact','Pending')";
             $result = mysqli_query($con, $qry); //query executes
+
+            // echo $qry;
+            // print_r(mysqli_error_list($con));
+            // exit;
         
             if (!$result) {
                 echo "<div class='container-fluid'>";
@@ -51,7 +55,7 @@
                 echo "<h1 style='color:maroon;'>Error 404</h1>";
                 echo "<h3>Error occured while entering your details</h3>";
                 echo "<p>Please Try Again</p>";
-                echo "<a class='btn btn-warning btn-big'  href='../pages/index.php'>Go Back</a> </div>";
+                echo "<a class='btn btn-warning btn-big' href='../index.php'>Go Back</a> </div>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";

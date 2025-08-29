@@ -23,7 +23,7 @@ include('dbcon.php'); ?>
     <div id="loginbox">
         <form id="loginform" class="form-vertical" method="POST" action="#">
             <div class="control-group normal_text">
-                <h3>Customer Login</h3>
+                <h3>User Login</h3>
             </div>
             <div class="control-group">
                 <div class="controls">
@@ -43,12 +43,12 @@ include('dbcon.php'); ?>
             </div>
             <div class="form-actions">
                 <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Join Now!</a></span>
-                <span class="pull-right"><button type="submit" name="login" class="btn btn-success" />Customer
+                <span class="pull-right"><button type="submit" name="login" class="btn btn-success" />User
                     Login</button></span>
             </div>
             <div class="g">
                 <a href="../index.php">
-                    <h6>Go Back</h6>
+                    <h6>Admin Login</h6>
                 </a>
             </div>
 
@@ -78,7 +78,7 @@ include('dbcon.php'); ?>
             }
             ?>
         </form>
-        <form id="recoverform" action="../customer/pages/register-cust.php" method="POST" class="form-vertical">
+        <form id="recoverform" action="../user/pages/register-cust.php" method="POST" class="form-vertical">
             <p class="normal_text">Enter your details below and we will send your details for further activation
                 process.</p>
 

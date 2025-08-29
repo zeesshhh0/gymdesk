@@ -175,7 +175,7 @@ header('location:../index.php');
 
             <div class='error_ex'>
             <h1>409</h1>
-            <h3>Looks like you've deactivated the customer's account!</h3>
+            <h3>Looks like you've deactivated the user's account!</h3>
             <p>The selected member's account will no longer be ACTIVATED until the next payment.</p>
             <a class='btn btn-danger btn-big'  href='payment.php'>Go Back</a> </div>
 

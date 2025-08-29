@@ -55,8 +55,8 @@ while($row=mysqli_fetch_array($result)){
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="customer-progress.php">Customer Progress</a> <a href="#" class="current">Update Progress</a> </div>
-    <h1 class="text-center">Update Customer's Progress <i class="fas fa-signal"></i></h1>
+    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a> <a href="user-progress.php">User Progress</a> <a href="#" class="current">Update Progress</a> </div>
+    <h1 class="text-center">Update User's Progress <i class="fas fa-signal"></i></h1>
   </div>
   
   

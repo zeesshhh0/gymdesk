@@ -55,48 +55,7 @@
 
       <div class="row-fluid">
 
-        <div class="span6">
 
-          <div class="widget-box">
-            <div class="widget-title"> <span class="icon"><i class="icon-time"></i></span>
-              <h5>My To-Do List</h5>
-            </div>
-            <div class="widget-content nopadding">
-
-              <?php
-              include "dbcon.php";
-              include "session.php";
-              $qry = "SELECT * FROM todo WHERE user_id='" . $_SESSION['user_id'] . "'";
-              $result = mysqli_query($con, $qry);
-
-              echo "<table class='table table-striped table-bordered'>
-              <thead>
-                <tr>
-                  <th>Description</th>
-                  <th>Status</th>
-                  <th>Opts</th>
-                </tr>
-              </thead>";
-              while ($row = mysqli_fetch_array($result)) {
-                echo "<tbody>
-                <tr>
-                  <td class='taskDesc'><a href='to-do.php'><i class='icon-plus-sign'></i></a>" . $row['task_desc'] . "</td>
-                  <td class='taskStatus'><span class='in-progress'>" . $row['task_status'] . "</span></td>
-                  <td class='taskOptions'><a href='update-todo.php?id=" . $row['id'] . "' class='tip-top' data-original-title='Update'><i class='icon-edit'></i></a>  <a href='actions/remove-todo.php?id=" . $row['id'] . "' class='tip-top' data-original-title='Done'><i class='icon-ok'></i></a></td>
-                </tr>
-				
-               
-              </tbody>";
-              }
-              ?>
-
-              </table>
-            </div>
-          </div>
-
-
-
-        </div> <!-- End of ToDo List Bar -->
 
         <div class="span6">
           <div class="widget-box">

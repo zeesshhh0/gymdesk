@@ -1,0 +1,103 @@
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+#header {
+    background: #2d2d2d;
+}
+
+#sidebar {
+    background: #2d2d2d;
+}
+
+#sidebar > ul > li > a {
+    color: #c7c7c7;
+}
+
+#sidebar > ul > li.active > a {
+    background: #1a1a1a !important;
+    color: #ffffff;
+}
+
+#content {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+#content-header h1 {
+    color: #ffffff;
+    text-shadow: 0 1px 0 #000000;
+}
+
+.widget-box {
+    background: #2d2d2d;
+    border-color: #3c3c3c;
+}
+
+.widget-title, .modal-header, .table th, div.dataTables_wrapper .ui-widget-header {
+    background: #252525;
+    border-bottom: 1px solid #3c3c3c;
+}
+
+.widget-title h5 {
+    color: #ffffff;
+}
+
+.widget-content {
+    border-color: #3c3c3c;
+    color: #ffffff;
+}
+
+.table-bordered {
+    border: 1px solid #3c3c3c;
+}
+
+.table-bordered th, .table-bordered td {
+    border-color: #3c3c3c;
+}
+
+.table tr:hover {
+    background: #383838;
+}
+
+a {
+    color: #28b779;
+}
+
+a:hover, a:focus {
+    color: #ffffff;
+}
+
+.form-horizontal .control-label {
+    color: #ffffff;
+}
+
+.form-horizontal .controls input, .form-horizontal .controls textarea, .form-horizontal .controls select {
+    background-color: #3c3c3c;
+    border-color: #505050;
+    color: #ffffff;
+}
+
+#breadcrumb {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #3c3c3c;
+}
+
+#breadcrumb a {
+    color: #c7c7c7;
+}
+
+#breadcrumb a:hover {
+    color: #ffffff;
+}
+
+#user-nav > ul > li > a {
+    color: #c7c7c7;
+}
+
+#user-nav > ul > li > a:hover, #user-nav > ul > li.open > a {
+    color: #ffffff;
+    background: #1a1a1a;
+}

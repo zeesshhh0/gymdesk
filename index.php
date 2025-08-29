@@ -11,6 +11,7 @@ include('dbcon.php'); ?>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/matrix-login.css" />
     <link href="font-awesome/css/fontawesome.css" rel="stylesheet" />
     <link href="font-awesome/css/all.css" rel="stylesheet" />
@@ -74,8 +75,8 @@ include('dbcon.php'); ?>
         }
         ?>
         <div class="pull-left">
-            <a href="customer/index.php">
-                <h6>Customer Login</h6>
+            <a href="user/index.php">
+                <h6>User Login</h6>
             </a>
         </div>
     </div>

@@ -4,8 +4,6 @@
       <ul class="dropdown-menu">
         <li><a href="../pages/my-report.php"><i class="icon-user"></i> My Report</a></li>
         <li class="divider"></li>
-        <li><a href="to-do.php"><i class="icon-check"></i> My Tasks</a></li>
-        <li class="divider "></li>
         <li><a href="../logout.php" ><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>

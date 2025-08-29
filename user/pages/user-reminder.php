@@ -9,7 +9,7 @@ header('location:../index.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Gym System</title>
+<title>Gym Desk System</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
@@ -25,7 +25,7 @@ header('location:../index.php');
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="index.php">Perfect Gym System</a></h1>
+  <h1><a href="index.php">Perfect Gym Desk System</a></h1>
 </div>
 <!--close-Header-part--> 
 

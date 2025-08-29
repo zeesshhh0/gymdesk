@@ -47,7 +47,7 @@ include('dbcon.php'); ?>
                     Login</button></span>
             </div>
             <div class="g">
-                <a href="../index.php">
+                <a href="../admin/login.php">
                     <h6>Admin Login</h6>
                 </a>
             </div>

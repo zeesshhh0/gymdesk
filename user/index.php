@@ -46,11 +46,6 @@ include('../dbcon.php'); ?>
                 <span class="pull-right"><button type="submit" name="login" class="btn btn-success" />User
                     Login</button></span>
             </div>
-            <div class="g">
-                <a href="../admin/login.php">
-                    <h6>Admin Login</h6>
-                </a>
-            </div>
 
             <?php
             if (isset($_POST['login'])) {

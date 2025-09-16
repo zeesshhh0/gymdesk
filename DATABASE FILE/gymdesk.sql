@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `user_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`user_id`, `username`, `password`, `name`) VALUES
+INSERT INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
 (2, 'admin', 'e00cf25ad42683b3df678c61f42c6bda', 'admin');
 
 -- --------------------------------------------------------
@@ -177,7 +177,7 @@ INSERT INTO `reminder` (`id`, `name`, `message`, `status`, `date`, `user_id`) VA
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `announcements`
@@ -217,7 +217,7 @@ ALTER TABLE `reminder`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `announcements`
 --

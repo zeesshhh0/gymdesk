@@ -61,7 +61,7 @@ include('dbcon.php'); ?>
             $num_row = mysqli_num_rows($query);
 
             if ($num_row > 0) {
-                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['admin_id'] = $row['admin_id'];
                 header('location:index.php');
 
             } else {

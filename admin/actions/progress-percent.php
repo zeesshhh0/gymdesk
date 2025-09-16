@@ -1,15 +1,6 @@
 <?php
 
-$servername = "localhost";
-$uname = "root";
-$pass = "";
-$db = "gymnsb";
-
-$conn = mysqli_connect($servername, $uname, $pass, $db);
-
-if (!$conn) {
-    die("Connection Failed");
-}
+include('../../dbcon.php');
 
 $sql = "SELECT SUM( (curr_weight - ini_weight) / ini_weight * 100) FROM members WHERE user_id='$id'";
 $amountsum = mysqli_query($conn, $sql) or die(mysqli_error($conn));

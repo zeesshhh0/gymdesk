@@ -57,9 +57,9 @@ header('location: login.php');
       <div class='widget-box'>
           <div class='widget-title'> <span class='icon'> <i class='fas fa-th'></i> </span>
             <h5>Member's Payment table</h5>
-            <form id="custom-search-form" role="search" method="POST" action="search-result.php" class="form-search form-horizontal pull-right">
+            <form id="custom-search-form" role="search" method="GET" action="" class="form-search form-horizontal pull-right">
                 <div class="input-append span12">
-                    <input type="text" class="search-query" placeholder="Search" name="search" required>
+                    <input type="text" class="search-query" placeholder="Search" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" required>
                     <button type="submit" class="btn"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -82,6 +82,10 @@ header('location: login.php');
       include "dbcon.php";
       $qry="SELECT * FROM members";
       $cnt = 1;
+      if(isset($_GET['search'])){
+        $search=$_GET['search'];
+        $qry="select * from members where fullname like '%$search%' or username like '%$search%'";
+      }
         $result=mysqli_query($conn,$qry);
 
         

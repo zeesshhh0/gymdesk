@@ -9,7 +9,7 @@ header('location: login.php');
 if(isset($_GET['id'])){
 $id=$_GET['id'];
 
-include 'dbcon.php';
+include('../../dbcon.php');
 
 
 $qry="delete from members where user_id=$id";

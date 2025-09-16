@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin_id'])){
 header('location: login.php');	
 }
 
-include('../dbcon.php');
+include('../../dbcon.php');
 
 $user_id = $_GET['id'];
 

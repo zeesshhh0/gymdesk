@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin_id'])){
 header('location: login.php');	
 }
 
-include('../dbcon.php');
+include('../../dbcon.php');
  date_default_timezone_set('Asia/Kathmandu');
  //$current_date = date('Y-m-d h:i:s');
     $current_date = date('Y-m-d h:i A');

@@ -2,7 +2,7 @@
 
 session_start();
 if(!isset($_SESSION['admin_id'])){
-header('location:../index.php');	
+header('location: login.php');	
 }
 
 if(isset($_GET['id'])){

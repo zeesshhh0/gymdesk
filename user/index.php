@@ -179,10 +179,10 @@ include('dbcon.php'); ?>
 
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/matrix.login.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/matrix.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/matrix.login.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/matrix.js"></script>
 </body>
 
 </html>

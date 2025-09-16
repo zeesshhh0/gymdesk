@@ -192,12 +192,6 @@ ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
@@ -213,18 +207,6 @@ ALTER TABLE `rates`
 -- Indexes for table `reminder`
 --
 ALTER TABLE `reminder`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `staffs`
---
-ALTER TABLE `staffs`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `todo`
---
-ALTER TABLE `todo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -247,11 +229,6 @@ ALTER TABLE `announcements`
 ALTER TABLE `attendance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
--- AUTO_INCREMENT for table `equipment`
---
-ALTER TABLE `equipment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
@@ -266,16 +243,6 @@ ALTER TABLE `rates`
 --
 ALTER TABLE `reminder`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `staffs`
---
-ALTER TABLE `staffs`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `todo`
---
-ALTER TABLE `todo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

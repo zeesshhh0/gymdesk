@@ -131,7 +131,7 @@ $(document).ready(function() {
 		theme_advanced_resizing : true,
 
 		// Example content CSS (should be your site CSS)
-		content_css : "css/main.css",
+		content_css : "../css/main.css",
 
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "lists/template_list.js",

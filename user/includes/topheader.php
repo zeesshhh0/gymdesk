@@ -4,10 +4,10 @@
       <ul class="dropdown-menu">
         <li><a href="../pages/my-report.php"><i class="icon-user"></i> My Report</a></li>
         <li class="divider"></li>
-        <li><a href="../logout.php" ><i class="icon-key"></i> Log Out</a></li>
+        <li><a href="../../logout.php" ><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
     
-    <li class=""><a title="" href="../logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="../../logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>

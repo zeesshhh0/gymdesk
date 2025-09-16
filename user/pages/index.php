@@ -69,7 +69,7 @@
 
                   <?php
 
-                  include "dbcon.php";
+                  include "../../dbcon.php";
                   $qry = "select * from announcements order by date desc";
                   $result = mysqli_query($con, $qry);
 
@@ -128,27 +128,27 @@
 
   <!--end-Footer-part-->
 
-  <script src="../../js/excanvas.min.js"></script>
-  <script src="../../js/jquery.min.js"></script>
-  <script src="../../js/jquery.ui.custom.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
-  <script src="../../js/jquery.flot.min.js"></script>
-  <script src="../../js/jquery.flot.resize.min.js"></script>
-  <script src="../../js/jquery.peity.min.js"></script>
-  <script src="../../js/fullcalendar.min.js"></script>
-  <script src="../../js/matrix.js"></script>
-  <script src="../../js/matrix.dashboard.js"></script>
-  <script src="../../js/jquery.gritter.min.js"></script>
-  <script src="../../js/matrix.interface.js"></script>
-  <script src="../../js/matrix.chat.js"></script>
-  <script src="../../js/jquery.validate.js"></script>
-  <script src="../../js/matrix.form_validation.js"></script>
-  <script src="../../js/jquery.wizard.js"></script>
-  <script src="../../js/jquery.uniform.js"></script>
-  <script src="../../js/select2.min.js"></script>
-  <script src="../../js/matrix.popover.js"></script>
-  <script src="../../js/jquery.dataTables.min.js"></script>
-  <script src="../../js/matrix.tables.js"></script>
+  <script src="../../jsexcanvas.min.js"></script>
+  <script src="../../jsjquery.min.js"></script>
+  <script src="../../jsjquery.ui.custom.js"></script>
+  <script src="../../jsbootstrap.min.js"></script>
+  <script src="../../jsjquery.flot.min.js"></script>
+  <script src="../../jsjquery.flot.resize.min.js"></script>
+  <script src="../../jsjquery.peity.min.js"></script>
+  <script src="../../jsfullcalendar.min.js"></script>
+  <script src="../../jsmatrix.js"></script>
+  <script src="../../jsmatrix.dashboard.js"></script>
+  <script src="../../jsjquery.gritter.min.js"></script>
+  <script src="../../jsmatrix.interface.js"></script>
+  <script src="../../jsmatrix.chat.js"></script>
+  <script src="../../jsjquery.validate.js"></script>
+  <script src="../../jsmatrix.form_validation.js"></script>
+  <script src="../../jsjquery.wizard.js"></script>
+  <script src="../../jsjquery.uniform.js"></script>
+  <script src="../../jsselect2.min.js"></script>
+  <script src="../../jsmatrix.popover.js"></script>
+  <script src="../../jsjquery.dataTables.min.js"></script>
+  <script src="../../jsmatrix.tables.js"></script>
 
   <script type="text/javascript">
     // This function is called from the pop-up menus to transfer to

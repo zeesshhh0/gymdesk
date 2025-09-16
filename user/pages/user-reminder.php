@@ -66,7 +66,7 @@ header('location:../index.php');
 
 	  <?php
 
-      include "dbcon.php";
+      include "../../dbcon.php";
       $qry="SELECT reminder FROM members WHERE user_id='".$_SESSION['user_id']."'";
       $cnt = 1;
         $result=mysqli_query($con,$qry);

@@ -74,7 +74,7 @@ header('location: login.php');
       $search=$_POST['search'];
       $cnt = 1;
       $qry="select * from members where fullname like '%$search%' or username like '%$search%'";
-        $result=mysqli_query($conn,$qry);
+        $result=mysqli_query($con,$qry);
 
         if (mysqli_num_rows($result)==0){
 

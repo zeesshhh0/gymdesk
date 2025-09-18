@@ -1,9 +1,12 @@
 <?php
 
-include('../../dbcon.php');
+require '../../dbcon.php';
 
-$sql = "SELECT * FROM members WHERE status ='Active'";
-                $query = $conn->query($sql);
+$is_active_query = "SELECT COUNT(*) AS active_subscriptions FROM subscriptions WHERE DATE(start_date) <= CURDATE() AND DATE(end_date) >= CURDATE()";
 
-                echo "$query->num_rows";
+$query = $con->query($is_active_query);
+
+$result = mysqli_fetch_array($query);
+
+echo $result['active_subscriptions'];
 ?>

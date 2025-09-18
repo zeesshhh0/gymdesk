@@ -14,6 +14,7 @@ This is currently a college project under active development.
 
 ### TODO List
 
+- [ ] Implement global file that initeates database connection and checks all things
 - [ ] Implement global search functionality across all database tables
 - [ ] Refactor codebase to create reusable utility functions
 - [ ] Add input validation and error handling

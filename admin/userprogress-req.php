@@ -70,7 +70,7 @@ header('location: login.php');
             //code after connection is successfull
             //update query
             $qry = "update members set ini_weight='$ini_weight', curr_weight='$curr_weight', ini_bodytype='$ini_bodytype', curr_bodytype='$curr_bodytype', progress_date='$curr_date' where user_id='$id'";
-            $result = mysqli_query($conn,$qry); //query executes
+            $result = mysqli_query($con,$qry); //query executes
 
             if(!$result){
                 echo"<div class='container-fluid'>";

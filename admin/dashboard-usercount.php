@@ -5,14 +5,14 @@ $uname="root";
 $pass="";
 $db="gymnsb";
 
-$conn=mysqli_connect($servername,$uname,$pass,$db);
+$con=mysqli_connect($servername,$uname,$pass,$db);
 
-if(!$conn){
+if(!$con){
     die("Connection Failed");
 }
 
 $sql = "SELECT * FROM members";
-                $query = $conn->query($sql);
+                $query = $con->query($sql);
 
                 echo "$query->num_rows";
 ?>

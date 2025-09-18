@@ -83,7 +83,7 @@ if (!isset($_SESSION['admin_id'])) {
                 $exp_date_time = explode(' ', $current_date);
                 $todays_date = $exp_date_time['0'];
                 $qry = "SELECT * FROM members WHERE status = 'Active'";
-                $result = mysqli_query($conn, $qry);
+                $result = mysqli_query($con, $qry);
                 $i = 1;
                 $cnt = 1;
                 while ($row = mysqli_fetch_array($result)) { ?>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['admin_id'])) {
 
                     <?php
                     $qry = "SELECT * FROM attendance WHERE curr_date = '$todays_date' AND user_id = '" . $row['user_id'] . "'";
-                    $res = $conn->query($qry);
+                    $res = $con->query($qry);
                     $num_count = mysqli_num_rows($res);
                     $row_exist = mysqli_fetch_array($res);
                     $curr_date = $row_exist['curr_date'];

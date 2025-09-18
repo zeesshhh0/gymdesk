@@ -1,14 +1,15 @@
 <?php
 session_start();
 //the isset function to check username is already loged in and stored on the session
-if (!isset($_SESSION['admin_id'])) {
-  header('location: login.php');
-}
+// if (!isset($_SESSION['admin_id'])) {
+//   header('location: login.php');
+// }
 include "dbcon.php";
-$qry = "SELECT services, count(*) as number FROM members GROUP BY services";
+$qry = "SELECT s.service_name AS services, COUNT(m.plan_id) as number FROM subscriptions m JOIN plans p JOIN services s ON m.plan_id = p.plan_id AND p.service_id = s.service_id GROUP BY s.service_name";
 $result = mysqli_query($con, $qry);
-$qry = "SELECT gender, count(*) as enumber FROM members GROUP BY gender";
+$qry = "SELECT gender, count(*) as number FROM members GROUP BY gender";
 $result3 = mysqli_query($con, $qry);
+
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +54,8 @@ $result3 = mysqli_query($con, $qry);
       chart.draw(data, options);
     }  
   </script>
-  
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawStuff);
@@ -69,15 +70,15 @@ $result3 = mysqli_query($con, $qry);
         // ['Other', 3]
 
         <?php
-        $query = "SELECT services, count(*) as number FROM members GROUP BY services";
-        $res = mysqli_query($con, $query);
-        while ($data = mysqli_fetch_array($res)) {
-          $services = $data['services'];
-          $number = $data['number'];
+        // $query = "SELECT services, count(*) as number FROM members GROUP BY services";
+        // $res = mysqli_query($con, $query);
+        // while ($data = mysqli_fetch_array($res)) {
+        //   $services = $data['services'];
+        //   $number = $data['number'];
           ?>
-          ['<?php echo $services; ?>', <?php echo $number; ?>],
+          ['<?php// echo $services; ?>', <?php //echo $number; ?>],
           <?php
-        }
+        //}
         ?>
 
 
@@ -104,7 +105,7 @@ $result3 = mysqli_query($con, $qry);
 
 
 
-  </script>
+  </script> -->
 
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['bar'] });
@@ -115,7 +116,7 @@ $result3 = mysqli_query($con, $qry);
         ['Terms', 'Total Amount',],
 
         <?php
-        $query1 = "SELECT gender, SUM(amount) as numberone FROM members; ";
+        $query1 = "SELECT m.gender, SUM(p.amount) as numberone FROM members m JOIN subscriptions s ON m.user_id = s.member_id JOIN plans p ON s.plan_id = p.plan_id GROUP BY m.gender";
 
         $rezz = mysqli_query($con, $query1);
         while ($data = mysqli_fetch_array($rezz)) {
@@ -187,7 +188,7 @@ $result3 = mysqli_query($con, $qry);
   <?php include 'includes/topheader.php' ?>
   <!--close-top-Header-menu-->
 
-  
+
   <!--sidebar-menu-->
   <?php $page = 'dashboard';
   include 'includes/sidebar.php' ?>
@@ -226,7 +227,7 @@ $result3 = mysqli_query($con, $qry);
         <li class="bg_lb span2"> <a href="interface.html"> <i class="fas fa-pencil"></i>Elements</a> </li> -->
           <!-- <li class="bg_lg"> <a href="calendar.html"> <i class="fas fa-calendar"></i> Calendar</a> </li>
         <li class="bg_lr"> <a href="error404.html"> <i class="fas fa-info-sign"></i> Error</a> </li> -->
-          
+
         </ul>
       </div>
       <!--End-Action boxes-->
@@ -277,7 +278,7 @@ $result3 = mysqli_query($con, $qry);
 
       </div>
 
-      <!--End-Chart-box--> 
+      <!--End-Chart-box-->
       <!-- <hr/> -->
       <div class="row-fluid">
         <div class="span6">
@@ -294,7 +295,7 @@ $result3 = mysqli_query($con, $qry);
 
                   include "dbcon.php";
                   $qry = "SELECT * FROM announcements";
-                  $result = mysqli_query($conn, $qry);
+                  $result = mysqli_query($con, $qry);
 
                   while ($row = mysqli_fetch_array($result)) {
                     echo "<div class='user-thumb'> <img width='70' height='40' alt='User' src='../img/demo/av1.jpg'> </div>";
@@ -344,7 +345,7 @@ $result3 = mysqli_query($con, $qry);
 
   <!--end-Footer-part-->
 
-  <script src="../js/excanvas.min.js"></script> 
+  <script src="../js/excanvas.min.js"></script>
   <script src="../js/jquery.min.js"></script>
   <script src="../js/jquery.ui.custom.js"></script>
   <script src="../js/bootstrap.min.js"></script>

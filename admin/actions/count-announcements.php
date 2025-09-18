@@ -3,7 +3,7 @@
 include('../../dbcon.php');
 
 $sql = "SELECT * FROM announcements";
-                $query = $conn->query($sql);
+                $query = $con->query($sql);
 
                 echo "$query->num_rows";
 ?>

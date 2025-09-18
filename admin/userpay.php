@@ -77,7 +77,7 @@ header('location: login.php');
             //code after connection is successfull
             //update query
             $qry = "UPDATE members SET amount='$amountpayable', plan='$plan', status='$status', paid_date='$curr_date', reminder='0' WHERE user_id='$id'";
-            $result = mysqli_query($conn,$qry); //query executes
+            $result = mysqli_query($con,$qry); //query executes
 
             if(!$result){ ?>
 

@@ -74,7 +74,7 @@ header('location: login.php');
              <?php include "dbcon.php";
               
                      $qry="SELECT * FROM members WHERE status = 'Active'";
-                    $result=mysqli_query($conn,$qry);
+                    $result=mysqli_query($con,$qry);
                    
               $cnt = 1;
             while($row=mysqli_fetch_array($result)){ ?>

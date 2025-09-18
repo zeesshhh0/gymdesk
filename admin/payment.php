@@ -86,7 +86,7 @@ header('location: login.php');
         $search=$_GET['search'];
         $qry="select * from members where fullname like '%$search%' or username like '%$search%'";
       }
-        $result=mysqli_query($conn,$qry);
+        $result=mysqli_query($con,$qry);
 
         
           echo"<table class='table table-bordered data-table table-hover'>

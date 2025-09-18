@@ -62,23 +62,17 @@ if (!isset($_SESSION['admin_id'])) {
         $password = $_POST["password"];
         $dor = $_POST["dor"];
         $gender = $_POST["gender"];
-        $services = $_POST["services"];
-        // $paid_date='$curr_date';
-        $amount = $_POST["amount"];
-        $p_year = date('Y');
-        $paid_date = date("Y-m-d");
-        $plan = $_POST["plan"];
         $address = $_POST["address"];
         $contact = $_POST["contact"];
 
         $password = md5($password);
 
-        $totalamount = $amount * $plan;
         // 
         include 'dbcon.php';
         //code after connection is successfull
-        $qry = "INSERT INTO members(fullname,username,password,dor,gender,services,amount,p_year,paid_date,plan,address,contact) values ('$fullname','$username','$password','$dor','$gender','$services','$totalamount','$p_year','$paid_date','$plan','$address','$contact')";
-        $result = mysqli_query($conn, $qry); //query executes
+        $qry = "INSERT INTO members(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
+        $qry = "INSERT INTO subscriptions(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
+        $result = mysqli_query($con, $qry); //query executes
       
         if (!$result) {
           echo "<div class='container-fluid'>";

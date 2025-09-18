@@ -1,5 +1,4 @@
-<?php session_start();
-include('dbcon.php'); ?>
+<?php require 'includes/global.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 

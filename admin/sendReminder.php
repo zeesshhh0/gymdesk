@@ -1,14 +1,10 @@
 <?php
-
-session_start();
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 
 if(isset($_GET['id'])){
 $id=$_GET['id'];
 
-include 'dbcon.php';
+
 
 
 $qry="UPDATE members SET reminder = '1' where user_id=$id";

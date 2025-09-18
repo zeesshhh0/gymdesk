@@ -1,9 +1,6 @@
 <?php
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +64,7 @@ header('location: login.php');
 
             $amountpayable = $amount * $plan;
             
-            include 'dbcon.php';
+            
             date_default_timezone_set('Asia/Kathmandu');
             //$current_date = date('Y-m-d h:i:s');
                 $current_date = date('Y-m-d h:i A');

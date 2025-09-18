@@ -1,9 +1,6 @@
 <?php
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +52,7 @@ header('location: login.php');
       <div class="span12">
 	          <div class="widget-box">
       <?php
-            include 'dbcon.php';
+            
             $id=$_GET['id'];
             $qry= "select * from members where user_id='$id'";
             $result=mysqli_query($con,$qry);

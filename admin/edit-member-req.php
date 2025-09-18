@@ -1,9 +1,6 @@
 <?php
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +63,7 @@ header('location: login.php');
 
             $totalamount = $amount * $plan;
             
-            include 'dbcon.php';
+            
             //code after connection is successfull
             //update query
             $qry = "update members set fullname='$fullname', username='$username',dor='$dor', gender='$gender', services='$services', amount='$totalamount', plan='$plan', address='$address', contact='$contact' where user_id='$id'";

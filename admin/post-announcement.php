@@ -1,9 +1,6 @@
 <?php
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 ?>
 
 <html lang="en">
@@ -56,7 +53,7 @@ if(isset($_POST['message'])){
 $message = $_POST["message"];    
 $date = $_POST["date"];
 
-include 'dbcon.php';
+
 //code after connection is successfull
 $qry = "insert into announcements(message,date) values ('$message','$date')";
 $result = mysqli_query($con,$qry); //query executes

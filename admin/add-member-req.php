@@ -1,9 +1,6 @@
 <?php
-session_start();
+require 'includes/global.php';
 //the isset function to check username is already loged in and stored on the session
-if (!isset($_SESSION['admin_id'])) {
-  header('location:../index.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +65,7 @@ if (!isset($_SESSION['admin_id'])) {
         $password = md5($password);
 
         // 
-        include 'dbcon.php';
+        
         //code after connection is successfull
         $qry = "INSERT INTO members(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
         $qry = "INSERT INTO subscriptions(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";

@@ -1,10 +1,6 @@
 <?php
-
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 
 include "dbcon.php";
 $qry="SELECT services, count(*) as number FROM members GROUP BY services";

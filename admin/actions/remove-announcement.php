@@ -1,15 +1,10 @@
 <?php
 
-session_start();
 //the isset function to check username is already loged in and stored on the session
-if(!isset($_SESSION['admin_id'])){
-header('location: login.php');	
-}
+require 'includes/global.php';
 
 if(isset($_GET['id'])){
 $id=$_GET['id'];
-
-include('../../dbcon.php');
 
 
 $qry="delete from announcements where id=$id";

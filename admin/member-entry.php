@@ -1,9 +1,6 @@
 <?php
-session_start();
+require 'includes/global.php';
 //the isset function to check username is already loged in and stored on the session
-// if(!isset($_SESSION['admin_id'])){
-// header('location: login.php');	
-// }
 ?>
 
 <!DOCTYPE html>

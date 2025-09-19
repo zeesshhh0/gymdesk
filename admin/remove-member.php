@@ -60,7 +60,7 @@ require 'includes/global.php';
 	  
 	  <?php
 
-      include "dbcon.php";
+      
       $qry="select * from members";
       $cnt = 1;
         $result=mysqli_query($con,$qry);
@@ -76,9 +76,6 @@ require 'includes/global.php';
                   <th>D.O.R</th>
                   <th>Address</th>
                   <th>Amount</th>
-                  <th>Choosen Service</th>
-                  <th>Plan</th>
-                  <th>Action</th>
                 </tr>
               </thead>";
               
@@ -90,11 +87,8 @@ require 'includes/global.php';
                 <td><div class='text-center'>".$row['fullname']."</div></td>
                 <td><div class='text-center'>@".$row['username']."</div></td>
                 <td><div class='text-center'>".$row['contact']."</div></td>
-                <td><div class='text-center'>".$row['dor']."</div></td>
+                <td><div class='text-center'>".$row['date_of_registration']."</div></td>
                 <td><div class='text-center'>".$row['address']."</div></td>
-                <td><div class='text-center'>$".$row['amount']."</div></td>
-                <td><div class='text-center'>".$row['services']."</div></td>
-                <td><div class='text-center'>".$row['plan']." Month/s</div></td>
                 <td><div class='text-center'><a href='actions/delete-member.php?id=".$row['user_id']."' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
                 
               </tbody>";

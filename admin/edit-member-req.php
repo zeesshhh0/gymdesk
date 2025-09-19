@@ -54,19 +54,15 @@ require 'includes/global.php';
             $username = $_POST["username"];
             $dor = $_POST["dor"];
             $gender = $_POST["gender"];
-            $services = $_POST["services"];
-            $amount = $_POST["amount"];
-            $plan = $_POST["plan"];
             $address = $_POST["address"];
             $contact = $_POST["contact"];
             $id = $_POST["id"];
 
-            $totalamount = $amount * $plan;
             
             
             //code after connection is successfull
             //update query
-            $qry = "update members set fullname='$fullname', username='$username',dor='$dor', gender='$gender', services='$services', amount='$totalamount', plan='$plan', address='$address', contact='$contact' where user_id='$id'";
+            $qry = "update members set fullname='$fullname', username='$username',date_of_registration='$dor', gender='$gender', address='$address', contact='$contact' where user_id='$id'";
             $result = mysqli_query($con,$qry); //query executes
 
             if(!$result){
@@ -102,7 +98,7 @@ require 'includes/global.php';
                             echo"<h1>Success</h1>";
                             echo"<h3>Member details has been updated!</h3>";
                             echo"<p>The requested details are updated. Please click the button to go back.</p>";
-                            echo"<a class='btn btn-inverse btn-big'  href='members.php'>Go Back</a> </div>";
+                            echo"<a class='btn btn-inverse btn-big'  href='edit-member.php'>Go Back</a> </div>";
                         echo"</div>";
                         echo"</div>";
                     echo"</div>";

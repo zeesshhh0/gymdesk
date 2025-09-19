@@ -1,7 +1,7 @@
 <?php
 require 'includes/global.php';
 //the isset function to check username is already loged in and stored on the session
-include "dbcon.php";
+
 $qry = "SELECT s.service_name AS services, COUNT(m.plan_id) as number FROM subscriptions m JOIN plans p JOIN services s ON m.plan_id = p.plan_id AND p.service_id = s.service_id GROUP BY s.service_name";
 $result = mysqli_query($con, $qry);
 $qry = "SELECT gender, count(*) as enumber FROM members GROUP BY gender";
@@ -290,7 +290,7 @@ $result3 = mysqli_query($con, $qry);
 
                   <?php
 
-                  include "dbcon.php";
+                  
                   $qry = "SELECT * FROM announcements";
                   $result = mysqli_query($con, $qry);
 

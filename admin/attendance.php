@@ -68,18 +68,18 @@ require 'includes/global.php';
                     <th>#</th>
                     <th>Fullname</th>
                     <th>Contact Number</th>
-                    <th>Choosen Service</th>
                     <th>Action</th>
                   </tr>
                 </thead>
 
-                <?php include "dbcon.php";
+                <?php
                 date_default_timezone_set('Asia/Kathmandu');
-                //$current_date = date('Y-m-d h:i:s');
                 $current_date = date('Y-m-d h:i A');
                 $exp_date_time = explode(' ', $current_date);
                 $todays_date = $exp_date_time['0'];
-                $qry = "SELECT * FROM members WHERE status = 'Active'";
+                $qry = "SELECT m.* FROM members m 
+                INNER JOIN subscriptions s ON m.user_id = s.user_id 
+                WHERE s.end_date > NOW() AND m.user_id NOT IN (SELECT user_id FROM attendance WHERE check_in_time = NOW())";
                 $result = mysqli_query($con, $qry);
                 $i = 1;
                 $cnt = 1;
@@ -96,45 +96,20 @@ require 'includes/global.php';
                     <td>
                       <div class='text-center'><?php echo $row['contact']; ?></div>
                     </td>
-                    <td>
-                      <div class='text-center'><?php echo $row['services']; ?></div>
-                    </td>
 
                     <!-- <span>count</span><br>CHECK IN</td> -->
                     <input type="hidden" name="user_id" value="<?php echo $row['user_id']; ?>">
 
-                    <?php
-                    $qry = "SELECT * FROM attendance WHERE curr_date = '$todays_date' AND user_id = '" . $row['user_id'] . "'";
-                    $res = $con->query($qry);
-                    $num_count = mysqli_num_rows($res);
-                    $row_exist = mysqli_fetch_array($res);
-                    $curr_date = $row_exist['curr_date'];
-                    if ($curr_date == $todays_date) {
 
-                      ?>
-                      <td>
-                        <div class='text-center'><span class="label label-inverse"><?php echo $row_exist['curr_date']; ?>
-                            <?php echo $row_exist['curr_time']; ?></span></div>
-                        <div class='text-center'><a
-                            href='actions/delete-attendance.php?id=<?php echo $row['user_id']; ?>'><button
-                              class='btn btn-danger'>Check Out <i class='fas fa-clock'></i></button> </a></div>
-                      </td>
+                    <td>
+                      <div class='text-center'><a
+                          href='actions/add-attendence.php?id=<?php echo $row['user_id']; ?>'><button
+                            class='btn btn-info'>Check In <i class='fas fa-map-marker-alt'></i></button> </a></div>
+                    </td>
 
-                    <?php } else {
-
-                      ?>
-
-                      <td>
-                        <div class='text-center'><a
-                            href='actions/check-attendance.php?id=<?php echo $row['user_id']; ?>'><button
-                              class='btn btn-info'>Check In <i class='fas fa-map-marker-alt'></i></button> </a></div>
-                      </td>
-
-                    <?php }
-                    ?>
-                  </tbody>
-                  <?php $cnt++;
-                } ?>
+                    <?php $cnt++;}
+                ?>
+                </tbody>
 
 
               </table>

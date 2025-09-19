@@ -67,8 +67,8 @@ require 'includes/global.php';
         // 
         
         //code after connection is successfull
-        $qry = "INSERT INTO members(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
-        $qry = "INSERT INTO subscriptions(fullname,username,password,dor,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
+        $qry = "INSERT INTO members(fullname,username,password,date_of_registration,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
+        $qry = "INSERT INTO subscriptions(fullname,username,password,date_of_registration,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
         $result = mysqli_query($con, $qry); //query executes
       
         if (!$result) {

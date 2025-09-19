@@ -74,9 +74,7 @@ require 'includes/global.php';
 
               <?php
 
-
-
-              include "dbcon.php";
+              
               $qry = "select * from members";
               $cnt = 1;
               if (isset($_GET['search'])) {
@@ -96,9 +94,6 @@ require 'includes/global.php';
                   <th>Contact Number</th>
                   <th>D.O.R</th>
                   <th>Address</th>
-                  <th>Amount</th>
-                  <th>Choosen Service</th>
-                  <th>Plan</th>
                 </tr>
               </thead>";
 
@@ -111,12 +106,8 @@ require 'includes/global.php';
                 <td><div class='text-center'>@" . $row['username'] . "</div></td>
                 <td><div class='text-center'>" . $row['gender'] . "</div></td>
                 <td><div class='text-center'>" . $row['contact'] . "</div></td>
-                <td><div class='text-center'>" . $row['dor'] . "</div></td>
+                <td><div class='text-center'>" . $row['date_of_registration'] . "</div></td>
                 <td><div class='text-center'>" . $row['address'] . "</div></td>
-                <td><div class='text-center'>$" . $row['amount'] . "</div></td>
-                <td><div class='text-center'>" . $row['services'] . "</div></td>
-                <td><div class='text-center'>" . $row['plan'] . " Month/s</div></td>
-             
                 
               </tbody>";
                 $cnt++;

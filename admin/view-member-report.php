@@ -108,7 +108,7 @@ require 'includes/global.php';
                   <tbody>
                     <tr>
                       <td class="msg-invoice" width="55%"> <div class="text-center"><h4>Last Payment Done:  $<?php echo $row['amount']; ?>/-</h4>
-                        <em><a href="#" class="tip-bottom" title="Registration Date" style="font-size:15px;">Member Since: <?php echo $row['dor']; ?> </a></em> </td>
+                        <em><a href="#" class="tip-bottom" title="Registration Date" style="font-size:15px;">Member Since: <?php echo $row['date_of_registration']; ?> </a></em> </td>
                         </div>
                     </tr>
                   </tbody>

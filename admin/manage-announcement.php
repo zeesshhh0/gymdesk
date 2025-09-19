@@ -60,7 +60,7 @@ require 'includes/global.php';
 	  
 	  <?php
 
-      include "dbcon.php";
+      
       $qry="select * from announcements";
       $cnt = 1;
         $result=mysqli_query($con,$qry);

@@ -75,7 +75,7 @@ require 'includes/global.php';
 
               <?php
 
-              include "dbcon.php";
+              
               $qry = "select * from members";
               $cnt = 1;
               if (isset($_GET['search'])) {

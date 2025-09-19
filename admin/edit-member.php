@@ -76,9 +76,6 @@ require 'includes/global.php';
                   <th>D.O.R</th>
                   <th>Address</th>
                   <th>Amount</th>
-                  <th>Choosen Service</th>
-                  <th>Plan</th>
-                  <th>Action</th>
                 </tr>
               </thead>";
               // 
@@ -91,11 +88,8 @@ require 'includes/global.php';
                 <td><div class='text-center'>@".$row['username']."</div></td>
                 <td><div class='text-center'>".$row['gender']."</div></td>
                 <td><div class='text-center'>".$row['contact']."</div></td>
-                <td><div class='text-center'>".$row['dor']."</div></td>
+                <td><div class='text-center'>".$row['date_of_registration']."</div></td>
                 <td><div class='text-center'>".$row['address']."</div></td>
-                <td><div class='text-center'>$".$row['amount']."</div></td>
-                <td><div class='text-center'>".$row['services']."</div></td>
-                <td><div class='text-center'>".$row['plan']." Month/s</div></td>
                 <td><div class='text-center'><a href='edit-memberform.php?id=".$row['user_id']."'><i class='fas fa-edit'></i> Edit</a></div></td>
                 
               </tbody>";

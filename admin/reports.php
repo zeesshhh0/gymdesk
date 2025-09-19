@@ -2,7 +2,7 @@
 //the isset function to check username is already loged in and stored on the session
 require 'includes/global.php';
 
-include "dbcon.php";
+
 $qry="SELECT gender, count(*) as number FROM members GROUP BY gender";
 $result=mysqli_query($con,$qry);
 ?>

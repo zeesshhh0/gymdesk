@@ -60,7 +60,6 @@ require 'includes/global.php';
 	  
 	  <?php
 
-      include "dbcon.php";
       $qry="select * from members";
       $cnt = 1;
         $result=mysqli_query($con,$qry);

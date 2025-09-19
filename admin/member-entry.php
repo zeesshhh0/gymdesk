@@ -63,12 +63,9 @@ require 'includes/global.php';
 
       $password = md5($password);
 
-      // 
-      include '../dbcon.php';
       //code after connection is successfull
       $qry = "INSERT INTO members(fullname,username,password,date_of_registration,gender,address,contact) values ('$fullname','$username','$password','$dor','$gender','$address','$contact')";
-      $result = mysqli_query($con, $qry);
-      var_dump($result); //query executes
+      $result=mysqli_query($con,$qry);
     
       if (!$result) {
         echo "<div class='container-fluid'>";

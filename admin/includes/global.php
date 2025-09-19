@@ -1,6 +1,8 @@
 <?php
 
-require '../../dbcon.php';
+require_once '../dbcon.php';
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 session_start();
 

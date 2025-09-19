@@ -59,9 +59,6 @@ require 'includes/global.php';
 	  
 	  <?php
 
-      include "dbcon.php";
-     
-
         
           echo"<table class='table table-bordered'>
               <thead>

@@ -1,7 +1,5 @@
 <?php
 
-include('../../dbcon.php');
-
 $sql = "SELECT * FROM announcements";
                 $query = $con->query($sql);
 

@@ -1,6 +1,6 @@
 <?php
 
-require '../../dbcon.php';
+require __DIR__ . '/../../dbcon.php';
 
 $is_active_query = "SELECT COUNT(*) AS active_subscriptions FROM subscriptions WHERE DATE(start_date) <= CURDATE() AND DATE(end_date) >= CURDATE()";
 

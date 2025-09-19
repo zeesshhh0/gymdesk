@@ -4,7 +4,7 @@ require 'includes/global.php';
 include "dbcon.php";
 $qry = "SELECT s.service_name AS services, COUNT(m.plan_id) as number FROM subscriptions m JOIN plans p JOIN services s ON m.plan_id = p.plan_id AND p.service_id = s.service_id GROUP BY s.service_name";
 $result = mysqli_query($con, $qry);
-$qry = "SELECT gender, count(*) as number FROM members GROUP BY gender";
+$qry = "SELECT gender, count(*) as enumber FROM members GROUP BY gender";
 $result3 = mysqli_query($con, $qry);
 
 ?>
@@ -51,8 +51,8 @@ $result3 = mysqli_query($con, $qry);
       chart.draw(data, options);
     }  
   </script>
-
-  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawStuff);
@@ -67,15 +67,15 @@ $result3 = mysqli_query($con, $qry);
         // ['Other', 3]
 
         <?php
-        // $query = "SELECT services, count(*) as number FROM members GROUP BY services";
-        // $res = mysqli_query($con, $query);
-        // while ($data = mysqli_fetch_array($res)) {
-        //   $services = $data['services'];
-        //   $number = $data['number'];
+        $query = "SELECT s.service_name AS services, COUNT(m.user_id) as number FROM subscriptions m JOIN plans p ON m.plan_id = p.plan_id JOIN services s ON p.service_id = s.service_id GROUP BY s.service_name";
+        $res = mysqli_query($con, $query);
+        while ($data = mysqli_fetch_array($res)) {
+          $services = $data['services'];
+          $number = $data['number'];
           ?>
-          ['<?php// echo $services; ?>', <?php //echo $number; ?>],
+          ['<?php echo $services; ?>', <?php echo $number; ?>],
           <?php
-        //}
+        }
         ?>
 
 
@@ -102,7 +102,7 @@ $result3 = mysqli_query($con, $qry);
 
 
 
-  </script> -->
+  </script>
 
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['bar'] });
@@ -113,7 +113,7 @@ $result3 = mysqli_query($con, $qry);
         ['Terms', 'Total Amount',],
 
         <?php
-        $query1 = "SELECT m.gender, SUM(p.amount) as numberone FROM members m JOIN subscriptions s ON m.user_id = s.member_id JOIN plans p ON s.plan_id = p.plan_id GROUP BY m.gender";
+        $query1 = "SELECT m.gender, SUM(p.amount) as numberone FROM members m JOIN subscriptions s ON m.user_id = s.user_id JOIN plans p ON s.plan_id = p.plan_id GROUP BY m.gender";
 
         $rezz = mysqli_query($con, $query1);
         while ($data = mysqli_fetch_array($rezz)) {
@@ -125,7 +125,7 @@ $result3 = mysqli_query($con, $qry);
           <?php
         }
         ?> 
-
+      ]);
         var options = {
 
         width: "1050",
@@ -211,7 +211,7 @@ $result3 = mysqli_query($con, $qry);
                 class="label label-important"><?php include 'dashboard-usercount.php' ?></span> Registered Members</a>
           </li>
           <li class="bg_lg span3"> <a href="payment.php" style="font-size: 16px;"> <i class="fa fa-dollar-sign"></i>
-              Total Earnings: $<?php include 'income-count.php' ?></a> </li>
+              Total Earnings: $<?php include 'actions/income-count.php' ?></a> </li>
           <li class="bg_lb span2"> <a href="announcement.php" style="font-size: 16px;"> <i
                 class="fas fa-bullhorn"></i><span
                 class="label label-important"><?php include 'actions/count-announcements.php' ?></span>Announcements

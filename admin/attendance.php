@@ -77,9 +77,11 @@ require 'includes/global.php';
                 $current_date = date('Y-m-d h:i A');
                 $exp_date_time = explode(' ', $current_date);
                 $todays_date = $exp_date_time['0'];
+                
                 $qry = "SELECT m.* FROM members m 
                 INNER JOIN subscriptions s ON m.user_id = s.user_id 
-                WHERE s.end_date > NOW() AND m.user_id NOT IN (SELECT user_id FROM attendance WHERE check_in_time = NOW())";
+                WHERE s.end_date > CURDATE() AND m.user_id NOT IN (SELECT user_id FROM attendance WHERE DATE(check_in_time) = CURDATE())";
+
                 $result = mysqli_query($con, $qry);
                 $i = 1;
                 $cnt = 1;

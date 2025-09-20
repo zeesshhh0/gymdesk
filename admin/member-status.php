@@ -76,7 +76,12 @@ require 'includes/global.php';
               <?php
 
               
-              $qry = "select * from members";
+                $qry = "SELECT m.*, s.*, p.*, sv.service_name
+                    FROM members m 
+                    LEFT JOIN subscriptions s ON m.user_id = s.user_id 
+                    LEFT JOIN plans p ON s.plan_id = p.plan_id
+                    LEFT JOIN services sv ON p.service_id = sv.service_id";
+
               $cnt = 1;
               if (isset($_GET['search'])) {
                 $search = $_GET['search'];
@@ -97,10 +102,17 @@ require 'includes/global.php';
                 </tr>
               </thead>";
 
-              while ($row = mysqli_fetch_array($result)) { ?>
-
+              while ($row = mysqli_fetch_array($result)) { 
+                $pendingSub = $isActive = $isExpired = false;
+                if (null === $row['start_date'] && null === $row['end_date']) {
+                    $pendingSub = true;
+                } else {
+                    $isActive = $row['start_date'] <= date('Y-m-d') && $row['end_date'] >= date('Y-m-d');
+                    $isExpired = $row['end_date'] < date('Y-m-d');
+                }
+                
+                ?>
                 <tbody>
-
                   <td>
                     <div class='text-center'><?php echo $cnt; ?></div>
                   </td>
@@ -111,18 +123,18 @@ require 'includes/global.php';
                     <div class='text-center'><?php echo $row['contact']; ?></div>
                   </td>
                   <td>
-                    <div class='text-center'><?php echo $row['services']; ?></div>
+                    <div class='text-center'><?php echo $row['service_name'] ?? ''; ?></div>
                   </td>
                   <td>
-                    <div class='text-center'><?php echo $row['plan']; ?> Month/s</div>
+                    <div class='text-center'><?php echo $pendingSub ? '0' :  $row['duration_months']; ?> Month/s</div>
                   </td>
                   <td>
                     <div class='text-center'>
-                      <?php if ($row['status'] == 'Active') {
+                      <?php if ($isActive) {
                         echo '<i class="fas fa-circle" style="color:green;"></i> Active';
-                      } else if ($row['status'] == 'Expired') {
+                      } else if ($isExpired) {
                         echo '<i class="fas fa-circle" style="color:red;"></i> Expired';
-                      } else {
+                      } else if ($pendingSub) {
                         echo '<i class="fas fa-circle" style="color:orange;"></i> Pending Reg';
                       } ?>
                     </div>

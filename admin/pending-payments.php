@@ -40,7 +40,7 @@ require 'includes/global.php';
   <!--close-top-serch-->
 
   <!--sidebar-menu-->
-  <?php $page = 'payment';
+  <?php $page = 'pending-payments';
   include 'includes/sidebar.php' ?>
   <!--sidebar-menu-->
 
@@ -48,7 +48,7 @@ require 'includes/global.php';
     <div id="content-header">
       <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i>
           Home</a> <a href="payment.php" class="current">Payments</a> </div>
-      <h1 class="text-center">Registered Member's Payment <i class="fas fa-group"></i></h1>
+      <h1 class="text-center">Pending Member's Payment <i class="fas fa-group"></i></h1>
     </div>
     <div class="container-fluid">
       <hr>
@@ -71,50 +71,32 @@ require 'includes/global.php';
             </div>
 
             <div class='widget-content nopadding'>
-
-
-
-              <!-- <form action="search-result.php" role="search" method="POST">
-            <div id="search">
-            <input type="text" placeholder="Search Here.." name="search"/>
-            <button type="submit" class="tip-bottom" title="Search"><i class="fas fa-search fa-white"></i></button>
-          </div>
-          </form> -->
-
-
               <?php
 
 
-              $qry = "SELECT m.*, s.*, p.*, sv.service_name
+              $qry = "SELECT m.fullname, m.user_id
                     FROM members m 
                     LEFT JOIN subscriptions s ON m.user_id = s.user_id 
-                    LEFT JOIN plans p ON s.plan_id = p.plan_id
-                    LEFT JOIN services sv ON p.service_id = sv.service_id
-                    WHERE s.end_date IS NOT NULL";
+                    WHERE s.end_date IS NULL";
               $cnt = 1;
               if (isset($_GET['search'])) {
                 $search = $_GET['search'];
                 $qry = "select * from members where fullname like '%$search%' or username like '%$search%'";
               }
               $result = mysqli_query($con, $qry);
-
-
-              echo "<table class='table table-bordered data-table table-hover'>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Member</th>
-                  <th>Subscription End Date</th>
-                  <th>Amount</th>
-                  <th>Choosen Service</th>
-                  <th>Plan</th>
-                  <th>Action</th>
-                  <th>Remind</th>
-                </tr>
-              </thead>";
-
-              while ($row = mysqli_fetch_array($result)) { 
-                ?>
+              if (mysqli_num_rows($result) == 0) {
+                echo "<p class='text-center'>No pending payments</p>";
+              } else {
+                echo "<table class='table table-bordered data-table table-hover'>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Member</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>";
+              }
+              while ($row = mysqli_fetch_array($result)) {?>
 
                 <tbody>
 
@@ -125,24 +107,8 @@ require 'includes/global.php';
                     <div class='text-center'><?php echo $row['fullname'] ?></div>
                   </td>
                   <td>
-                    <div class='text-center'><?php echo ($row['end_date'] === null ? "New Member" : $row['end_date']) ?></div>
-                  </td>
-                  <td>
-                    <div class='text-center'><?php echo '$' . $row['amount'] ?></div>
-                  </td>
-                  <td>
-                    <div class='text-center'><?php echo $row['service_name'] ?></div>
-                  </td>
-                  <td>
-                    <div class='text-center'><?php echo $row['duration_months'] . " Month/s" ?></div>
-                  </td>
-                  <td>
-                    <div class='text-center'><a href='user-payment.php?id=<?php echo $row['user_id'] ?>'><button
+                    <div class='text-center'><a href='pending-user-payment.php?id=<?php echo $row['user_id'] ?>'><button
                           class='btn btn-success btn'><i class='fas fa-dollar-sign'></i> Make Payment</button></a></div>
-                  </td>
-                  <td>
-                    <div class='text-center'><a href='sendReminder.php?id=<?php echo $row['user_id'] ?>'><button
-                          class='btn btn-danger btn' <?php echo ($row['reminder'] == 1 ? "disabled" : "") ?>>Alert</button></a></div>
                   </td>
                 </tbody>
                 <?php $cnt++;

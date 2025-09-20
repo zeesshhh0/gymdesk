@@ -1,4 +1,3 @@
-<?php require 'includes/global.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,12 +48,13 @@
             </div>
         </form>
         <?php
+        session_start();
+        require_once 'dbcon.php';
         if (isset($_POST['login'])) {
             $username = mysqli_real_escape_string($con, $_POST['user']);
             $password = mysqli_real_escape_string($con, $_POST['pass']);
 
             $password = md5($password);
-
             $query = mysqli_query($con, "SELECT * FROM admin WHERE  password='$password' and username='$username'");
             $row = mysqli_fetch_array($query);
             $num_row = mysqli_num_rows($query);

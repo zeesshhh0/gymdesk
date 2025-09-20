@@ -56,29 +56,26 @@ require 'includes/global.php';
             <?php
             if (isset($_POST['user_id'])) {
 
-                $invoice_query = "SELECT m.fullname, s.*, p.*, sv.service_name
-                    FROM members m 
-                    LEFT JOIN subscriptions s ON m.user_id = s.user_id 
-                    LEFT JOIN plans p ON s.plan_id = p.plan_id
-                    LEFT JOIN services sv ON p.service_id = sv.service_id where m.user_id='{$_POST['user_id']}'";
-
-                $invoice_result = mysqli_query($con, $invoice_query);
-                $invoice_row = mysqli_fetch_array($invoice_result);
-                $fullname = $invoice_row['fullname'];
-                $services = $invoice_row['service_name'];
-                $plan = $invoice_row['duration_months'];
-                $amount = number_format((float)$invoice_row['amount'] / $invoice_row['duration_months'], 2, '.', '');
-                $amountpayable = $invoice_row['amount'];
-                $paid_date = $invoice_row['end_date'];
-                
                 //getting values from the form
-                $plan_id = $_POST["plan_id"];
-                $plan_duration_months = $_POST["plan_duration_months"];
+                $plan_duration_months = $plan = $_POST["plan_duration_months"];
                 $id = $_POST['user_id'];
-
+                $fullname = $_POST['fullname'];
+                $service_id = $_POST['service_id'];
 
                 //update query
-                $qry = "UPDATE subscriptions SET start_date=end_date, end_date=DATE_ADD(end_date, INTERVAL $plan_duration_months MONTH), plan_id='$plan_id' WHERE user_id='$id'";
+                $qry3 = "SELECT service_name FROM services WHERE service_id='$service_id'";
+                $result3 = mysqli_query($con, $qry3);
+                $row3 = mysqli_fetch_array($result3);
+                $services = $row3['service_name'];
+
+                $qry2 = "SELECT plan_id, amount FROM plans WHERE duration_months='$plan' AND service_id='$service_id'";
+                $result2 = mysqli_query($con, $qry2);
+                $row2 = mysqli_fetch_array($result2);
+
+                $amountpayable = $row2['amount'];
+                $amount = number_format((float)$amountpayable / $_POST['plan_duration_months'], 2, '.', '');
+                
+                $qry = "INSERT INTO subscriptions (user_id, start_date, end_date, plan_id) VALUES ('$id', CURDATE(), DATE_ADD(CURDATE(), INTERVAL $plan_duration_months MONTH), '{$row2['plan_id']}')";
                 $result = mysqli_query($con, $qry); //query executes
             
                 if (!$result) { ?>
@@ -113,9 +110,6 @@ require 'includes/global.php';
                                                                                             #GMS_<?php echo (rand(100000, 10000000)); ?>
                                                                                             <br> 5021 Wetzel Lane,
                                                                                             <br>Williamsburg
-                                                                                        </div>
-                                                                                        <div style="float:right"> Last Payment:
-                                                                                            <?php echo $paid_date ?>
                                                                                         </div>
                                                                                     </td>
                                                                                 </tr>

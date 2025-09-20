@@ -48,11 +48,9 @@ require 'includes/global.php';
   <?php
 
   $id = $_GET['id'];
-  $qry = "SELECT m.fullname, s.*, p.*, sv.service_name
+  $qry = "SELECT m.fullname, m.user_id
                     FROM members m 
-                    LEFT JOIN subscriptions s ON m.user_id = s.user_id 
-                    LEFT JOIN plans p ON s.plan_id = p.plan_id
-                    LEFT JOIN services sv ON p.service_id = sv.service_id where m.user_id='$id'";
+                    where m.user_id='$id'";
   $result = mysqli_query($con, $qry);
 
   while ($row = mysqli_fetch_array($result)) {
@@ -105,10 +103,11 @@ require 'includes/global.php';
                     <table class="table table-bordered table-invoice">
 
                       <tbody>
-                        <form action="userpay.php" method="POST">
+                        <form action="pending-userpay.php" method="POST">
                           <tr>
                           <tr>
                             <td class="width30">Member's Fullname:</td>
+                            <input type="hidden" name="fullname" value="<?php echo $row['fullname']; ?>">
                             <td class="width70"><strong><?php echo $row['fullname']; ?></strong></td>
                           </tr>
                           <tr>
@@ -119,14 +118,13 @@ require 'includes/global.php';
                                 $qry = "SELECT service_name,service_id FROM services";
                                 $res = mysqli_query($con, $qry);
                                 while ($serv = mysqli_fetch_array($res)) {
-                                  $selected = ($serv['service_id'] == $row['service_id']) ? "selected" : "";
+                                  $selected = "";
                                   echo "<option value='" . $serv['service_id'] . "' " . $selected . ">" . $serv['service_name'] . "</option>";
                                 }
                                 ?>
                               </select>
                             </td>
                           </tr>
-
                           <td class="width30">Plan:</td>
                           <td class="width70">
                             <div class="controls">
@@ -134,19 +132,16 @@ require 'includes/global.php';
                                 <?php
                                 $plans = array(1, 3, 6, 12);
                                 foreach ($plans as $plan) {
-                                  $selected = ($plan == $row['duration_months']) ? 'selected' : '';
+                                  $selected = '';
                                   echo "<option value='$plan' $selected>$plan Month</option>";
                                 }
                                 ?>
                               </select>
                             </div>
                           </td>
-                          <input type="hidden" name="plan_id" id="plan_id" value="<?php echo $row['plan_id']; ?>">
                           <tr>
                             <td>Total Amount:</td>
-                            <td><strong><span id="amount"><?php
-                            echo $row['amount'];
-                            ?> </span></strong>
+                            <td><strong><span id="amount">50.00</span></strong>
                             </td>
                           </tr>
 

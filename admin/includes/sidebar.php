@@ -18,7 +18,12 @@
 
     
     <li class="<?php if($page=='member-status'){ echo 'active'; }?>"><a href="member-status.php"><i class="fas fa-eye"></i> <span>Member's Status</span></a></li>
-    <li class="<?php if($page=='payment'){ echo 'active'; }?>"><a href="payment.php"><i class="fas fa-hand-holding-usd"></i> <span>Payments</span></a></li>
+    <li class="submenu"><a href="#"><i class="fas fa-hand-holding-usd"></i> <span>Payments</span></a>
+    <ul>
+      <li class="<?php if($page=='payments'){ echo 'active'; }?>"><a href="payment.php"><i class="fas fa-arrow-right"></i> Payments</a></li>
+      <li class="<?php if($page=='pending-payments'){ echo 'active'; }?>"><a href="pending-payments.php"><i class="fas fa-arrow-right"></i> Pending Payments</a></li>
+    </ul>
+    </li>
     <li class="<?php if($page=='announcement'){ echo 'active'; }?>"><a href="announcement.php"><i class="fas fa-bullhorn"></i> <span>Announcement</span></a></li>
     <li class="submenu"> <a href="#"><i class="fas fa-file"></i> <span>Reports</span></a>
     <ul>

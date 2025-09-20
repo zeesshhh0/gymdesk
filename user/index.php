@@ -54,7 +54,7 @@ include('../dbcon.php'); ?>
 
                 $password = md5($password);
 
-                $query = mysqli_query($con, "SELECT * FROM members WHERE  password='$password' and username='$username' and status='Active'");
+                $query = mysqli_query($con, "SELECT * FROM members WHERE password='$password' and username='$username'");
                 $row = mysqli_fetch_array($query);
                 $num_row = mysqli_num_rows($query);
 
@@ -134,32 +134,6 @@ include('../dbcon.php'); ?>
             </div>
 
             <br>
-
-            <div class="controls">
-                <div class="main_input_box">
-                    <select name="plan" required="required" id="select">
-                        <option selected="true" disabled="disabled">Select Plans</option>
-                        <option value="1">One Month</option>
-                        <option value="3">Three Month</option>
-                        <option value="6">Six Month</option>
-                        <option value="12">One Year</option>
-                    </select>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="controls">
-                <div class="main_input_box">
-                    <select name="services" required="required" id="select">
-                        <option selected="true" disabled="disabled">Select Service</option>
-                        <option value="Fitness">Fitness</option>
-                        <option value="Sauna">Sauna</option>
-                        <option value="Cardio">Cardio</option>
-                    </select>
-                </div>
-            </div>
-
 
 
             <div class="form-actions">

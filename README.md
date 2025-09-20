@@ -17,8 +17,9 @@ This is currently a college project under active development.
 - [x] Implement global file that initeates database connection and checks all things
 - [x] fix the index page 
 - [x] remove all the dbcon includes from files
+- [x] fix the members Status page
+- [ ] fix the db for all the modules
 - [ ] correct Implement global search functionality across all database tables
-- [ ] fix the members Status page
 - [ ] fix the sidebar
 - [ ] change name from payments to subscriptions
 - [ ] Refactor codebase to create reusable utility functions

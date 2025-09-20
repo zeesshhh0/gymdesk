@@ -26,21 +26,14 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
             $gender = $_POST["gender"];
-            $services = $_POST["services"];
-            $plan = $_POST["plan"];
-            $address = $_POST["address"];
             $contact = $_POST["contact"];
 
             $password = md5($password);
 
             include '../../dbcon.php';
             //code after connection is successfull
-            $qry = "insert into members(fullname,username,password,dor,gender,services,amount,plan,address,contact,status) values ('$fullname','$username','$password', CURRENT_TIMESTAMP,'$gender','$services','0','$plan','$address','$contact','Pending')";
+            $qry = "insert into members(fullname,username,password,date_of_registration,gender,address,contact) values ('$fullname','$username','$password', CURRENT_TIMESTAMP,'$gender','$address','$contact')";
             $result = mysqli_query($con, $qry); //query executes
-
-            // echo $qry;
-            // print_r(mysqli_error_list($con));
-            // exit;
         
             if (!$result) {
                 echo "<div class='container-fluid'>";

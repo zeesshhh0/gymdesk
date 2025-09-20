@@ -62,8 +62,12 @@ require 'includes/global.php';
 	  <?php
 
       
-      $qry="select * from members";
-      $cnt = 1;
+      $qry="SELECT m.fullname, m.user_id, ser.service_name AS services 
+      FROM members m
+        INNER JOIN subscriptions s ON m.user_id = s.user_id
+        INNER JOIN plans p ON p.plan_id = s.plan_id
+        INNER JOIN services ser ON p.service_id = ser.service_id
+        WHERE s.end_date IS NOT NULL";
         $result=mysqli_query($con,$qry);
 
         
@@ -84,7 +88,7 @@ require 'includes/global.php';
                 <td><div class='text-center'><?php echo $cnt;?></div></td>
                 <td><div class='text-center'><?php echo $row['fullname'];?></div></td>
                 <td><div class='text-center'><?php echo $row['services'];?></div></td>
-                <td><div class='text-center'><a href="view-member-report.php?id= <?php echo $row['user_id'] ?>"><i class="fas fa-file"></i> View Report</a></div></td>
+                <td><div class='text-center'><a href="view-member-report.php?id=<?php echo $row['user_id'] ?>"><i class="fas fa-file"></i> View Report</a></div></td>
                 
               </tbody>
           <?php

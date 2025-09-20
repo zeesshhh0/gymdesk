@@ -54,7 +54,13 @@ require 'includes/global.php';
       <?php
             
             $id=$_GET['id'];
-            $qry= "select * from members where user_id='$id'";
+            $qry= "SELECT m.*, p.*, s.*, ser.service_name AS services, 
+      (SELECT COUNT(*) FROM attendance WHERE user_id='$id') AS attendance_count 
+      FROM members m
+        INNER JOIN subscriptions s ON m.user_id = s.user_id
+        INNER JOIN plans p ON p.plan_id = s.plan_id
+        INNER JOIN services ser ON p.service_id = ser.service_id
+        WHERE m.user_id='$id'";
             $result=mysqli_query($con,$qry);
             while($row=mysqli_fetch_array($result)){
             ?> 
@@ -97,7 +103,7 @@ require 'includes/global.php';
                     <tr>
                       <td><div class="text-center">PGC-SS-<?php echo $row['user_id']; ?></div></td>
                       <td><div class="text-center"><?php echo $row['services']; ?></div></td>
-                      <td><div class="text-center"><?php if($row['plan'] == 0) { echo 'NONE';} else {echo $row['plan'].' Month/s';} ?></div></td>
+                      <td><div class="text-center"><?php if($row['duration_months'] == 0) { echo 'NONE';} else {echo $row['duration_months'].' Month/s';} ?></div></td>
                       <td><div class="text-center"><?php echo $row['address']; ?></div></td>
                       <td><div class="text-center"><?php echo '$'.$row['amount']; ?></div></td>
                       <td><div class="text-center"><?php echo $row['attendance_count']; ?> Day/s</div></td>
@@ -119,7 +125,7 @@ require 'includes/global.php';
 
             <div class="row-fluid">
                 <div class="pull-left">
-                <h4>Member <?php echo $row['fullname']; ?>,<br/> <br/> Membership is currently <?php echo $row['status']; ?>! <br/></h4><p>Thank you for choosing our services.<br/>- on the behalf of whole team</p>
+                <h4>Member <?php echo $row['fullname']; ?>,<br/> <br/> Membership is currently Active! <br/></h4><p>Thank you for choosing our services.<br/>- on the behalf of whole team</p>
                 </div>
                 <div class="pull-right">
                   <h4><span>Approved By:</h4>

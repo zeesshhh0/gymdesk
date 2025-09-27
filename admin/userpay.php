@@ -78,7 +78,7 @@ require 'includes/global.php';
 
 
                 //update query
-                $qry = "UPDATE subscriptions SET start_date=end_date, end_date=DATE_ADD(end_date, INTERVAL $plan_duration_months MONTH), plan_id='$plan_id' WHERE user_id='$id'";
+                $qry = "UPDATE subscriptions SET start_date=end_date, end_date=DATE_ADD(end_date, INTERVAL $plan_duration_months MONTH), plan_id='$plan_id', reminder=0 WHERE user_id='$id'";
                 $result = mysqli_query($con, $qry); //query executes
             
                 if (!$result) { ?>

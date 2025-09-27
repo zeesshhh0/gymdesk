@@ -25,8 +25,7 @@
     </ul>
     </li>
     <li class="<?php if($page=='announcement'){ echo 'active'; }?>"><a href="announcement.php"><i class="fas fa-bullhorn"></i> <span>Announcement</span></a></li>
-    <li class="<?php if($page=='member-status'){ echo 'active'; }?>"> <a href="members-report.php"><i class="fas fa-file"></i> <span>Members Report</span></a>
-    </li>
+    <li class="<?php if($page=='member-repo'){ echo 'active'; }?>"> <a href="members-report.php"><i class="fas fa-file"></i> <span>Members Report</span></a></li>
 
      
    

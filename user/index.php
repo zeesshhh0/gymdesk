@@ -54,7 +54,9 @@ include('../dbcon.php'); ?>
 
                 $password = md5($password);
 
-                $query = mysqli_query($con, "SELECT * FROM members WHERE password='$password' and username='$username'");
+                $query = mysqli_query($con, "SELECT user_id FROM members m 
+                    LEFT JOIN subscriptions s ON m.user_id = s.user_id 
+                    WHERE s.end_date IS NOT NULL AND password='$password' and username='$username'");
                 $row = mysqli_fetch_array($query);
                 $num_row = mysqli_num_rows($query);
 

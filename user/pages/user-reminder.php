@@ -67,13 +67,10 @@ header('location:../index.php');
 	  <?php
 
       include "../../dbcon.php";
-      $qry="SELECT reminder FROM members WHERE user_id='".$_SESSION['user_id']."'";
+      $qry="SELECT reminder FROM subscriptions s JOIN members m ON m.user_id = s.user_id WHERE m.user_id='".$_SESSION['user_id']."'";
       $cnt = 1;
         $result=mysqli_query($con,$qry);
 
-        
-         
-              
             while($row=mysqli_fetch_array($result)){ ?>
 
 

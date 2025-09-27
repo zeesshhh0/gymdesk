@@ -34,7 +34,13 @@
     include '../../dbcon.php';
     include "../../session.php";
     // $id=$_GET['id'];
-    $qry= "select * from members WHERE user_id='".$_SESSION['user_id']."'";
+      $qry= "SELECT m.*, p.*, s.*, ser.service_name AS services, 
+      (SELECT COUNT(*) FROM attendance WHERE user_id='$id') AS attendance_count 
+      FROM members m
+        INNER JOIN subscriptions s ON m.user_id = s.user_id
+        INNER JOIN plans p ON p.plan_id = s.plan_id
+        INNER JOIN services ser ON p.service_id = ser.service_id
+        WHERE m.user_id='".$_SESSION['user_id']."'";
     $result=mysqli_query($con,$qry);
     while($row=mysqli_fetch_array($result)){
 ?> 
@@ -88,7 +94,7 @@
                     <tr>
                       <td><div class="text-center">PGC-SS-<?php echo $row['user_id']; ?></div></td>
                       <td><div class="text-center"><?php echo $row['services']; ?></div></td>
-                      <td><div class="text-center"><?php echo $row['plan']; ?> Month/s</div></td>
+                      <td><div class="text-center"><?php echo $row['duration_months']; ?> Month/s</div></td>
                       <td><div class="text-center"><?php echo $row['address']; ?></div></td>
                       <td><div class="text-center"><?php echo '$'.$row['amount']; ?></div></td>
                       <td><div class="text-center"><?php echo $row['attendance_count']; ?> Day/s</div></td>
@@ -99,7 +105,7 @@
                   <tbody>
                     <tr>
                       <td class="msg-invoice" width="55%"> <div class="text-center"><h4>Last Payment Done:  $<?php echo $row['amount']; ?>/-</h4>
-                        <em><a href="#" class="tip-bottom" title="Registration Date" style="font-size:15px;">Member Since: <?php echo $row['dor']; ?> </a></em> </td>
+                        <em><a href="#" class="tip-bottom" title="Registration Date" style="font-size:15px;">Member Since: <?php echo $row['date_of_registration']; ?> </a></em> </td>
                         </div>
                     </tr>
                   </tbody>
